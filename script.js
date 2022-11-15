@@ -2,7 +2,15 @@ var datatbase = [
     {
         username: "Percy",
         password: "super123"
-    }
+    },
+    {
+        username: "Michelle",
+        password: "1tr6"
+    },
+    {
+        username: "Micheal",
+        password: "Fast110"
+    },
 ];
 
 var newsFeed = [
@@ -13,19 +21,32 @@ var newsFeed = [
     {
         username: "Sally",
         timeLine: "This is so coool"
+    },
+    {
+        username: "Calvin",
+        timeLine: "Do you want to know?"
     }
 ];
 
-var userNamePrompt = prompt("What's your username?")
-var passwordPrompt = prompt("What's your password?")
+function isUserValid(username, password) {
+    for (var i=0; i < datatbase.length; i++) {
+        if (datatbase[i].username === username &&
+            datatbase[i].password === password) {
+            return true;
+        }
+    }
+    return false;
+}
 
-function signIn(user, pass) {
-    if (user === datatbase[0].username && 
-        pass === datatbase[0].password) {
+function signIn(username, password) {
+    if (isUserValid(username, password)) {
         console.log(newsFeed); 
     } else {
         alert("Sorry, wrong username and password!");
     }
 }
+
+var userNamePrompt = prompt("What's your username?")
+var passwordPrompt = prompt("What's your password?")
 
 signIn(userNamePrompt, passwordPrompt);
